@@ -1,11 +1,13 @@
-There is an access log at /app/access.log in Apache combined log format. Parse it
-and write a summary report as JSON to /app/report.json with exactly these keys:
+There's an access log at /app/access.log, in Apache combined log format. Go through
+it and write a summary as JSON to /app/report.json. The report needs exactly these
+three keys:
 
-1. "total_requests": the total number of log lines in the file.
-2. "unique_ips": the count of distinct client IP addresses (first field of each line).
-3. "top_path": the request path (e.g. "/index.html") that appears most often across
-   all requests. If there is a tie, any of the tied paths is acceptable.
+1. "total_requests" — how many lines are in the log file, total.
+2. "unique_ips" — how many distinct client IPs show up (that's the first field on
+   each line).
+3. "top_path" — whichever request path got hit the most across all the requests,
+   e.g. "/index.html". If two paths are tied for the top spot, either one is fine.
 
-Do not modify /app/access.log.
+Leave /app/access.log itself untouched.
 
 You have 120 seconds to complete this task. Do not cheat by using online solutions or hints specific to this task.
